@@ -1,0 +1,928 @@
+/*
+Theme Name: Laskarina Brisimitzaki Legal
+Theme URI: https://lbrisimitzaki.gr        ← update this
+Author: Your Name                          ← update this
+Description: Custom single-page theme for Laskarina Brisimitzaki, Attorney & Legal Consultant.
+Version: 1.0.1
+License: GNU General Public License v2 or later
+Text Domain: lbrisimitzaki
+*/
+
+:root {
+  --burgundy: #5b1024;
+  --burgundy-dark: #3b0b19;
+  --gold: #c8a96a;
+  --offwhite: #ffffff;
+  --cream: #f4efe7;
+  --text-main: #222222;
+  --text-muted: #777777;
+  --border-soft: #e3ddd4;
+  --layout-max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  width: 100%;
+  font-family: "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text-main);
+  background: #ffffff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* GENERAL LAYOUT */
+
+.page-wrapper {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+.section {
+  width: 100%;
+  padding: 80px 0;
+}
+
+.section-narrow,
+.container {
+  width: 100%;
+  max-width: 1200px;
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+}
+
+.section-cream {
+  background: var(--cream);
+}
+
+.section-offwhite {
+  background: var(--offwhite);
+}
+
+.section-dark {
+  background: #111111;
+  color: #ffffff;
+}
+
+.section-burgundy {
+  background: #181818;
+  color: #ffffff;
+  padding-top: 50px;
+  /* από 80 → 50 */
+  padding-bottom: 60px;
+}
+
+.section-burgundy .cta-main h2 {
+  color: #d9b66b;
+}
+
+.section-burgundy .cta-main p {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.section-burgundy .cta-tag {
+  border-color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 60px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  header nav {
+    justify-content: space-between;
+  }
+}
+
+/* HEADER / NAV */
+
+header {
+  position: relative;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+header .inner {
+  padding: 6px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+}
+
+.logo-image img {
+  height: 56px;
+  /* ρύθμισέ το ανάλογα με το logo σου */
+  width: auto;
+  display: block;
+}
+
+.logo span {
+  display: inline-block;
+  padding-right: 2px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+nav a {
+  color: var(--text-main);
+  position: relative;
+  padding-bottom: 3px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.22s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* BUTTONS */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 26px;
+  border-radius: 999px;
+  font-size: 13px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.22s ease, color 0.22s ease, border-color 0.22s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--burgundy);
+  color: #ffffff;
+  border-color: var(--burgundy);
+}
+
+.btn-primary:hover {
+  background: var(--burgundy-dark);
+  border-color: var(--burgundy-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #f4e6c0;
+  border-color: var(--border-soft);
+}
+
+.btn-ghost:hover {
+  border-color: #bbbbbb;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+
+.headline {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 42px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.headline span {
+  display: block;
+}
+
+.subheading {
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 410px;
+  margin-bottom: 30px;
+}
+
+/* HERO SECTION */
+
+.hero {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 0;
+  /* κανένα κενό αριστερά */
+  padding-right: 4%;
+  /* κρατάμε το δεξί περιθώριο για το κείμενο */
+  min-height: calc(100vh - 70px);
+  /* περίπου το ύψος της οθόνης μείον το header */
+  background: #ffffff;
+  display: flex;
+  align-items: stretch;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  /* ~62% εικόνα, ~38% κείμενο */
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding-right: 40px 0;
+  /* αν υπήρχε κάτι άλλο */
+}
+
+@media (max-width: 900px) {
+  .hero-content-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.hero-content-simple {
+  max-width: 420px;
+}
+
+.hero-vertical-line {
+  width: 1px;
+  height: 180px;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    padding-left: 5%;
+    /* λίγο κενό και στα δύο */
+    padding-right: 5%;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 26px padding: 40px 0;
+  }
+
+  .hero-vertical-line {
+    display: none;
+  }
+}
+
+.hero-image {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 100%;
+  /* γεμίζει όλο το ύψος της στήλης */
+  min-height: 420px;
+  background: #000;
+}
+
+@media (min-width: 1400px) {
+  .hero-image {
+    min-height: 480px;
+  }
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 28%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.85) 60%,
+      #ffffff 100%);
+}
+
+.hero-content-simple {
+  max-width: 420px;
+}
+
+.hero-content .firm-name {
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  /* πιο έντονο */
+  font-size: 40px;
+  /* λίγο μεγαλύτερο */
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  line-height: 1.15;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.08);
+}
+
+.hero-content .firm-name span {
+  display: block;
+}
+
+.hero-award-tag {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 600;
+  background-image: linear-gradient(90deg, #d9b66b, #f5e2a4, #b4883d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #d9b66b;
+  /* fallback για browsers που δεν υποστηρίζουν background-clip:text */
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 26px;
+}
+
+.hero-meta-item span {
+  display: block;
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 13px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* ABOUT FOUNDER */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.about-heading {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.about-text p {
+  margin-bottom: 14px;
+  font-size: 15px;
+}
+
+.about-text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-highlight {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border-soft);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.about-highlight strong {
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.about-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ddd;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+  color: #555;
+}
+
+/* AREAS OF SPECIALIZATION */
+
+.areas-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+  .areas-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.area-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px 22px;
+  border: 1px solid var(--border-soft);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.area-card:hover {
+  transform: translateY(-3px);
+  border-color: #d0c3ae;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.05);
+}
+
+.area-title {
+  font-family: "Playfair Display", serif;
+  font-size: 16px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.area-body {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.area-link {
+  display: inline-flex;
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--burgundy);
+}
+
+/* PROCESS SECTION */
+
+.process-grid {
+  display: grid;
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+  grid-template-columns: 1fr 1fr;
+  gap: 40px 80px;
+  /* κάθετο, οριζόντιο κενό */
+  position: relative;
+  box-sizing: border-box;
+}
+
+.process-grid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 800px) {
+  .process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.process-card {
+  border-radius: 14px;
+  border: 1px solid var(--border-soft);
+  background: #ffffff;
+  padding: 24px 24px 26px;
+  position: relative;
+}
+
+.process-step {
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.process-progress {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.process-title {
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.process-list {
+  list-style: none;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.process-list li {
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.process-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 12px;
+  color: var(--burgundy);
+}
+
+/* AWARD / RIBBON SECTION */
+
+.awards-strip {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 900px) {
+  .awards-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+.award-pill {
+  background: #161616;
+  border-radius: 16px;
+  padding: 24px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.award-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 4px;
+}
+
+.award-title {
+  font-family: "Playfair Display", serif;
+  font-size: 17px;
+}
+
+.award-copy {
+  font-size: 13px;
+  color: #dddddd;
+}
+
+/* CONTACT SECTION */
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 50px;
+  align-items: stretch;
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 26px 24px 26px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border-soft);
+}
+
+.contact-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 18px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 13px;
+}
+
+.form-field label {
+  font-weight: 500;
+}
+
+.form-field input,
+.form-field textarea {
+  border-radius: 6px;
+  border: 1px solid var(--border-soft);
+  padding: 9px 10px;
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.form-field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--burgundy);
+  box-shadow: 0 0 0 1px rgba(91, 16, 36, 0.09);
+}
+
+.contact-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.contact-office {
+  margin-top: 22px;
+  font-size: 14px;
+}
+
+.contact-office h4 {
+  font-family: "Playfair Display", serif;
+  font-size: 15px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.contact-office p {
+  margin-bottom: 6px;
+}
+
+.contact-office a {
+  color: var(--burgundy);
+}
+
+.map-embed {
+  width: 100%;
+  flex-grow: 1;
+  height: 100%;
+  /* Αναγκάζει το κουτί να πάρει όλο το ύψος της στήλης */
+  min-height: 20px;
+  /* Δίνει ένα ελάχιστο ύψος για να μην κλείνει ο χάρτης */
+  background: none;
+  /* Εξαφανίζει τυχόν μαύρο background */
+  border-radius: 12px;
+  /* Αν θέλεις στρογγυλεμένες γωνίες όπως στη photo */
+  overflow: hidden;
+  position: relative;
+}
+
+.map-embed iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* HERO CALL-TO-ACTION BLOCK (BURGUNDY SECTION) */
+
+.cta-main {
+  width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+.cta-main h2 {
+  font-family: "Cormorant Garamond", "Playfair Display", serif;
+  font-size: 40px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 500;
+  color: #d9b66b;
+  /* Gold gradient text */
+  background-image: linear-gradient(to bottom,
+      #cfc09f 0%,
+      #f5e2a4 40%,
+      #b88a3b 75%,
+      #8a6a2f 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #d9b66b;
+  /* fallback για browsers χωρίς background-clip:text */
+}
+
+.cta-main p {
+  max-width: 600px;
+  margin: 0 auto 24px;
+  font-size: 15px;
+}
+
+.cta-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 11px;
+}
+
+.cta-tag {
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* FOOTER */
+
+footer {
+  background: #050505;
+  color: #ffffff;
+  padding: 38px 0 28px;
+  font-size: 12px;
+}
+
+.footer-top {
+  display: grid;
+  width: 100%;
+  max-width: 1200px;
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1.4fr);
+  gap: 40px;
+  margin-bottom: 22px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+.footer-logo {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  letter-spacing: 0.2em;
+  margin-bottom: 8px;
+}
+
+.footer-heading {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: 10px;
+  color: #bbbbbb;
+}
+
+.footer-link {
+  display: block;
+  margin-bottom: 5px;
+  color: #dddddd;
+}
+
+.footer-contact-line {
+  margin-bottom: 6px;
+}
+
+.footer-bottom {
+  width: 100%;
+  max-width: 1200px;
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #aaaaaa;
+  box-sizing: border-box;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-socials a {
+  color: #dddddd;
+}
+
