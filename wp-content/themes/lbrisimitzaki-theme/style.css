@@ -412,11 +412,11 @@ nav a:hover::after {
 
 @media (max-width: 900px) {
   .hero {
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 0;
+    padding-right: 0;
     display: block; /* Stack layouts naturally on mobile without restricted flex height */
     min-height: auto; /* Let the height adapt dynamically to content */
-    padding-top: 30px;
+    padding-top: 0;
     padding-bottom: 40px;
   }
 
@@ -429,7 +429,7 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     gap: 26px;
-    padding: 0; /* Remove double padding as parent container has padding */
+    padding: 0 5%; /* Padding left/right for text on mobile */
   }
 
   .hero-vertical-line {
@@ -437,7 +437,7 @@ nav a:hover::after {
   }
 
   .hero-image {
-    border-radius: 18px; /* Beautiful rounded card on mobile layout */
+    border-radius: 0; /* Full screen edge-to-edge layout */
     min-height: 300px; /* Restrict height so it leaves plenty of space for text */
     height: 300px;
   }
@@ -455,7 +455,7 @@ nav a:hover::after {
 
 .hero-image {
   position: relative;
-  border-radius: 0 18px 18px 0; /* Flat left edge flush with screen edge, rounded right edges facing text */
+  border-radius: 0; /* Sharp corners for clean editorial look */
   overflow: hidden;
   height: 100%;
   /* γεμίζει όλο το ύψος της στήλης */
